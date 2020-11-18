@@ -194,10 +194,12 @@
   <FML.TrainYoung>Train young animals</FML.TrainYoung>
   <FML.SendToSlaughterArea>Restrict animals marked for slaughter</FML.SendToSlaughterArea>
   <FML.SendToSlaughterArea.Tip>Restrict animals designated for slaughtering to a specific area</FML.SendToSlaughterArea.Tip>
+  <FML.SendToHungryArea>Restrict animals that are hungry</FML.SendToHungryArea>
+  <FML.SendToHungryArea.Tip>Restrict animals that are hungry to a specific area</FML.SendToHungryArea.Tip>
   <FML.SendToMilkingArea>Restrict animals ready to be milked</FML.SendToMilkingArea>
-  <FML.SendToMilkingArea.Tip>Restrict animals with milk fullness above 94% to a specific area.</FML.SendToMilkingArea.Tip>
+  <FML.SendToMilkingArea.Tip>Restrict animals ready to be milked to a specific area.</FML.SendToMilkingArea.Tip>
   <FML.SendToShearingArea>Restrict animals ready to be sheared</FML.SendToShearingArea>
-  <FML.SendToShearingArea.Tip>Restrict animals with shearing fullness above 94% to a specific area</FML.SendToShearingArea.Tip>
+  <FML.SendToShearingArea.Tip>Restrict animals ready to be sheared to a specific area</FML.SendToShearingArea.Tip>
   <FM.Livestock.TargetCountsHeader>Target counts</FM.Livestock.TargetCountsHeader>
   <FM.Livestock.AreaRestrictionsHeader>Area restrictions</FM.Livestock.AreaRestrictionsHeader>
   <FM.Livestock.TrainingHeader>Training</FM.Livestock.TrainingHeader>

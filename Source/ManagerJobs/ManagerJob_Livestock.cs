@@ -32,11 +32,13 @@ namespace FluffyManager
         public                  bool             SendToMilkingArea;
         public                  bool             SendToShearingArea;
         public                  bool             SendToSlaughterArea;
+        public                  bool             SendToHungryArea;
         public                  bool             SendToTrainingArea;
         public                  bool             SetFollow;
         public                  Area             ShearArea;
         public                  Area             SlaughterArea;
         public                  Area             TameArea;
+        public                  Area             HungryArea;
         public                  Pawn             Trainer;
         public                  MasterMode       Trainers;
         public                  TrainingTracker  Training;
@@ -90,6 +92,10 @@ namespace FluffyManager
             // set up training area
             SendToTrainingArea = false;
             TrainingArea       = null;
+
+            // set up hungry area
+            SendToHungryArea = false;
+            HungryArea       = null;
 
             // taming
             TryTameMore = false;
@@ -310,6 +316,7 @@ namespace FluffyManager
             Scribe_References.Look( ref MilkArea, "MilkArea" );
             Scribe_References.Look( ref ShearArea, "ShearArea" );
             Scribe_References.Look( ref TrainingArea, "TrainingArea" );
+            Scribe_References.Look( ref HungryArea, "HungryArea" );
             Scribe_References.Look( ref Master, "Master" );
             Scribe_References.Look( ref Trainer, "Trainer" );
             Scribe_Collections.Look( ref RestrictArea, "AreaRestrictions", LookMode.Reference );
@@ -325,6 +332,7 @@ namespace FluffyManager
             Scribe_Values.Look( ref SendToMilkingArea, "SendToMilkingArea" );
             Scribe_Values.Look( ref SendToShearingArea, "SendToShearingArea" );
             Scribe_Values.Look( ref SendToTrainingArea, "SendToTrainingArea" );
+            Scribe_Values.Look( ref SendToHungryArea, "SendToHungryArea");
             Scribe_Values.Look( ref TryTameMore, "TryTameMore" );
             Scribe_Values.Look( ref SetFollow, "SetFollow", true );
             Scribe_Values.Look( ref FollowDrafted, "FollowDrafted", true );
@@ -508,6 +516,17 @@ namespace FluffyManager
                     {
                         actionTaken                      = p.playerSettings.AreaRestriction != SlaughterArea;
                         p.playerSettings.AreaRestriction = SlaughterArea;
+                    }
+
+                    // hungry
+                    else if ( SendToHungryArea && 
+                              p.TicksUntilStarving() < UpdateInterval.ticks )
+                    {
+                        if (p.playerSettings.AreaRestriction != HungryArea)
+                        {
+                            actionTaken = true;
+                            p.playerSettings.AreaRestriction = HungryArea;
+                        }
                     }
 
                     // milking

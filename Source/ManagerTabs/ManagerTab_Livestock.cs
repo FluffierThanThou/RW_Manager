@@ -539,6 +539,24 @@ namespace FluffyManager
                        color: Color.grey );
             }
 
+            if (_selectedCurrent.Trigger.pawnKind.RaceProps.EatsFood)
+            {
+                var sendToHungryAreaRect = new Rect(pos.x, pos.y, width, ListEntryHeight);
+                pos.y += ListEntryHeight;
+                DrawToggle(sendToHungryAreaRect,
+                            "FML.SendToHungryArea".Translate(),
+                            "FML.SendToHungryArea.Tip".Translate(),
+                            ref _selectedCurrent.SendToHungryArea);
+
+                if (_selectedCurrent.SendToHungryArea)
+                {
+                    var hungryAreaRect = new Rect(pos.x, pos.y, width, ListEntryHeight);
+                    AreaAllowedGUI.DoAllowedAreaSelectors(hungryAreaRect, ref _selectedCurrent.HungryArea,
+                                                           manager);
+                    pos.y += ListEntryHeight;
+                }
+            }
+
             if ( _selectedCurrent.Trigger.pawnKind.Milkable() )
             {
                 var sendToMilkingAreaRect = new Rect( pos.x, pos.y, width, ListEntryHeight );

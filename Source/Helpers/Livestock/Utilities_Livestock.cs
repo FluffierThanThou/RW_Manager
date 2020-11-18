@@ -399,6 +399,13 @@ namespace FluffyManager
             return Mathf.CeilToInt( ( 1 - comp.Fullness ) / growthRatePerTick );
         }
 
+        public static int TicksUntilStarving( this Pawn pawn )
+        {
+            // this isn't perfect. we assume this is linear when it isn't. the real calculation is more complicated.
+            // check out "Need_Food.FoodFallPerTickAssumingCategory(...)" for more details
+            return Mathf.CeilToInt(pawn.needs.food.CurLevel / pawn.needs.food.FoodFallPerTick);
+        }
+
         public static bool VisiblyPregnant( this Pawn pawn )
         {
             return pawn?.health.hediffSet.GetHediffs<Hediff_Pregnant>().Any( hp => hp.Visible ) ?? false;

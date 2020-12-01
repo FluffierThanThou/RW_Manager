@@ -404,6 +404,14 @@ namespace FluffyManager
             return pawn?.health.hediffSet.GetHediffs<Hediff_Pregnant>().Any( hp => hp.Visible ) ?? false;
         }
 
+        public static bool AnimalIsSick( this Pawn pawn )
+        {
+            if (pawn.health.hediffSet.HasImmunizableNotImmuneHediff()) { return true; }
+            if (pawn.health.HasHediffsNeedingTend()) { return true; }
+            if (!pawn.health.capacities.CapableOf(PawnCapacityDefOf.Moving)) { return true; }
+            return false;
+        }
+
         private static bool _milkable( this Pawn pawn )
         {
             var    comp                = pawn?.TryGetComp<CompMilkable>();

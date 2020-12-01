@@ -198,6 +198,8 @@
   <FML.SendToMilkingArea.Tip>Restrict animals with milk fullness above 94% to a specific area.</FML.SendToMilkingArea.Tip>
   <FML.SendToShearingArea>Restrict animals ready to be sheared</FML.SendToShearingArea>
   <FML.SendToShearingArea.Tip>Restrict animals with shearing fullness above 94% to a specific area</FML.SendToShearingArea.Tip>
+  <FML.SendToSickArea>Restrict animals that are sick/injured</FML.SendToSickArea>
+  <FML.SendToSickArea.Tip>Restrict animals that are sick/injured to a specific area</FML.SendToSickArea.Tip>
   <FM.Livestock.TargetCountsHeader>Target counts</FM.Livestock.TargetCountsHeader>
   <FM.Livestock.AreaRestrictionsHeader>Area restrictions</FM.Livestock.AreaRestrictionsHeader>
   <FM.Livestock.TrainingHeader>Training</FM.Livestock.TrainingHeader>

@@ -539,6 +539,27 @@ namespace FluffyManager
                        color: Color.grey );
             }
 
+            // i think all tamed animals can at least require tending, if not get sick
+            // if there is some def-wide tamable animal that never gets sick or needs tending
+            // like pet mechanoids or something, that condition would go here. idk what it is.
+            if (true)
+            {
+                var sendToSickAreaRect = new Rect(pos.x, pos.y, width, ListEntryHeight);
+                pos.y += ListEntryHeight;
+                DrawToggle(sendToSickAreaRect,
+                            "FML.SendToSickArea".Translate(),
+                            "FML.SendToSickArea.Tip".Translate(),
+                            ref _selectedCurrent.SendToSickArea);
+
+                if (_selectedCurrent.SendToSickArea)
+                {
+                    var sickAreaRect = new Rect(pos.x, pos.y, width, ListEntryHeight);
+                    AreaAllowedGUI.DoAllowedAreaSelectors(sickAreaRect, ref _selectedCurrent.SickArea,
+                                                           manager);
+                    pos.y += ListEntryHeight;
+                }
+            }
+
             if ( _selectedCurrent.Trigger.pawnKind.Milkable() )
             {
                 var sendToMilkingAreaRect = new Rect( pos.x, pos.y, width, ListEntryHeight );
